@@ -2,9 +2,19 @@ name: CI Pipeline
 
 on:
   push:
-    branches: ["*"]
+    branches:
+      - ft/pipeline
+      - main
+      - dev
+      - ft/setup
+      - Christophe-Shumbusho-patch-1
   pull_request:
-    branches: ["*"]
+    branches: 
+      - ft/pipeline
+      - main
+      - dev
+      - ft/setup
+      - Christophe-Shumbusho-patch-1
   workflow_dispatch:
 
 jobs:
