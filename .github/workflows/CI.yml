@@ -7,14 +7,12 @@ on:
       - main
       - dev
       - ft/setup
-      - Christophe-Shumbusho-patch-1
   pull_request:
     branches: 
       - ft/pipeline
       - main
       - dev
       - ft/setup
-      - Christophe-Shumbusho-patch-1
   workflow_dispatch:
 
 jobs:
