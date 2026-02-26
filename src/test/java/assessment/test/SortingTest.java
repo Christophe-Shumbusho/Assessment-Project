@@ -54,6 +54,7 @@ public class SortingTest {
     }
     @AfterClass
     public void teardown() {
+        //quiting the driver
         driver.quit();
     }
 }
