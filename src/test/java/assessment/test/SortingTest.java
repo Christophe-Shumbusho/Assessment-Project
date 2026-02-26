@@ -41,7 +41,7 @@ public class SortingTest {
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("h5[data-test='product-name']")));
 
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("h5[data-test='product-name']")));
-        List<WebElement> nameElements = driver.findElements(By.cssSelector("h5[data-test='product-name']"));
+        List<WebElement> nameElements = driver.findElements(By.cssSelector("h[data-test='product-name']"));
         List<String> productNamesBefore = nameElements.stream().map(WebElement::getText).collect(Collectors.toList());
         System.out.println("Product names" + productNamesBefore);
 
