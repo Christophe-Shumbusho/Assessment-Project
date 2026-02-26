@@ -54,6 +54,7 @@ public class SortingTest {
     }
     @AfterClass
     public void teardown() {
+        //Quit browser
         driver.quit();
     }
 }
