@@ -30,7 +30,7 @@ public class SortingTest {
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.get("https://practicesoftwaretesting.com/");
-        wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
 
