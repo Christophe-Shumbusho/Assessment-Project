@@ -60,7 +60,7 @@ public class SortingTest {
     }
     @AfterClass
     public void teardown() {
-        //Quit browser
+        //Quit browse
         driver.quit();
     }
 }
