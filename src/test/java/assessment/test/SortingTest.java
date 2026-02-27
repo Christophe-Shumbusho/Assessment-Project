@@ -40,6 +40,7 @@ public class SortingTest {
         WebDriverWait waii = new WebDriverWait(driver,Duration.ofSeconds(50));
         WebElement sortDropdown = waii.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("select.form-select")));
         Select select = new Select(sortDropdown);
+        wait.until(ExpectedConditions.visibilityOf(sortDropdown));
         select.selectByVisibleText("Name (A - Z)");
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("h5[data-test='product-name']")));
 
