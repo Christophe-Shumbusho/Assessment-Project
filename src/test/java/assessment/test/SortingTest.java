@@ -24,23 +24,18 @@ public class SortingTest {
     private WebDriverWait wait;
     @BeforeClass
     public void setup(){
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless=new"); // required in CI
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://practicesoftwaretesting.com/");
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(50));
     }
 
 
 
     @Test
     public void validateSortingFunctionality(){
-        WebDriverWait waii = new WebDriverWait(driver,Duration.ofSeconds(10));
-        WebElement sortDropdown = driver.findElement(By.xpath("//select[@aria-label='sort']"));
-        wait.until(ExpectedConditions.elementToBeClickable(sortDropdown));
+        WebDriverWait waii = new WebDriverWait(driver,Duration.ofSeconds(20));
+        WebElement sortDropdown = waii.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("select.form-select")));
         Select select = new Select(sortDropdown);
         select.selectByVisibleText("Name (A - Z)");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
@@ -55,7 +50,7 @@ public class SortingTest {
          List<String> sortedNamesAfter = new ArrayList<>(productNamesBefore);
          Collections.sort(sortedNamesAfter);
         System.out.println("Sorted name" + sortedNamesAfter);
-//        Assert.assertNotEquals(productNamesBefore, sortedNamesAfter, "Sorting does not change!");
+        Assert.assertNotEquals(productNamesBefore, sortedNamesAfter, "Sorting does not change!");
 
     }
     @AfterClass
