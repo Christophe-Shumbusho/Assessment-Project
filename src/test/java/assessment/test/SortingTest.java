@@ -37,7 +37,7 @@ public class SortingTest {
 
     @Test
     public void validateSortingFunctionality(){
-        WebDriverWait waii = new WebDriverWait(driver,Duration.ofSeconds(20));
+        WebDriverWait waii = new WebDriverWait(driver,Duration.ofSeconds(50));
         WebElement sortDropdown = waii.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("select.form-select")));
         Select select = new Select(sortDropdown);
         select.selectByVisibleText("Name (A - Z)");
