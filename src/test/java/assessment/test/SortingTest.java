@@ -24,7 +24,10 @@ public class SortingTest {
     private WebDriverWait wait;
     @BeforeClass
     public void setup(){
-        driver = new ChromeDriver();
+//        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new", "--no-sandbox", "--disable-dev-shm-usage");
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.get("https://practicesoftwaretesting.com/");
         wait = new WebDriverWait(driver, Duration.ofSeconds(50));
@@ -38,7 +41,6 @@ public class SortingTest {
         WebElement sortDropdown = waii.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("select.form-select")));
         Select select = new Select(sortDropdown);
         select.selectByVisibleText("Name (A - Z)");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("h5[data-test='product-name']")));
 
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("h5[data-test='product-name']")));
@@ -50,7 +52,7 @@ public class SortingTest {
          List<String> sortedNamesAfter = new ArrayList<>(productNamesBefore);
          Collections.sort(sortedNamesAfter);
         System.out.println("Sorted name" + sortedNamesAfter);
-//        Assert.assertNotEquals(productNamesBefore, sortedNamesAfter, "Sorting does not change!");
+        Assert.assertNotEquals(productNamesBefore, sortedNamesAfter, "Sorting does not change!");
 
     }
     @AfterClass
